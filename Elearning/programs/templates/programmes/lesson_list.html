@@ -1,0 +1,24 @@
+{% load static %}
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1 class="my-4">Liste des leçons</h1>
+    <a href="{% url 'myapp:lesson_create' %}" class="btn btn-primary mb-4">Créer une nouvelle leçon</a>
+    <div class="row">
+        {% for lesson in lessons %}
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ lesson.titre }}</h5>
+                    <p class="card-text">Niveau : {{ lesson.niveau.nom }}</p>
+                    <p class="card-text">Ressource : {{ lesson.ressource.titre }}</p>
+                    <a href="{% url 'myapp:lesson_update' lesson.id %}" class="btn btn-primary">Modifier</a>
+                    <a href="{% url 'myapp:lesson_delete' lesson.id %}" class="btn btn-danger">Supprimer</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

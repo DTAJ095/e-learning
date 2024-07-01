@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container my-5">
+    <h1 class="mb-4">{{ thread.title }}</h1>
+    <p>{{ thread.content }}</p>
+    <p class="text-muted">Créé par {{ thread.author.username }} le {{ thread.created_at }}</p>
+    <a href="{% url 'create_reply' thread.forum.id thread.id %}" class="btn btn-primary mb-3">Répondre</a>
+    <h2 class="mb-4">Réponses</h2>
+    <div class="list-group">
+      {% for reply in replies %}
+        <div class="list-group-item">
+          <p>{{ reply.content }}</p>
+          <p class="text-muted">Posté par {{ reply.author.username }} le {{ reply.created_at }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}

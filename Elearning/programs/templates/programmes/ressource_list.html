@@ -1,0 +1,24 @@
+{% load static %}
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1 class="my-4">Liste des ressources</h1>
+    <a href="{% url 'myapp:ressource_create' %}" class="btn btn-primary mb-4">Créer une nouvelle ressource</a>
+    <div class="row">
+        {% for ressource in ressources %}
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ ressource.titre }}</h5>
+                    <p class="card-text">Type : {{ ressource.type }}</p>
+                    <p class="card-text">Niveau : {{ ressource.niveau.nom }}</p>
+                    <a href="{% url 'myapp:ressource_update' ressource.id %}" class="btn btn-primary">Modifier</a>
+                    <a href="{% url 'myapp:ressource_delete' ressource.id %}" class="btn btn-danger">Supprimer</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,112 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elearning</title>
+  {% load bootstrap5 %}
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
+ 
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Sidebar -->
+      <div class="col-3 bg-light p-0">
+        <div class="sidebar h-100 d-flex flex-column">
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">BEAC</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav flex-column">
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Mes Cours</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Rechercher un cour</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Mes ressources</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Mes Examens</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Forum</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+
+      <!-- Main Content Area -->
+      <div class="col-9">
+        <!-- Header -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+          <a class="navbar-brand" href="#">Header</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link 1</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link 2</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"> k<img src="" alt=""> </a>
+
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="p-4">
+          <h1>Welcome to the Main Content Area</h1>
+          <p>This is where the main content of your page will go.</p>
+        </div>
+
+        <!-- Footer -->
+        <footer class="bg-light text-center text-lg-start">
+          <div class="container p-4">
+            <div class="row">
+              <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+                <h5 class="text-uppercase">Footer Content</h5>
+                <p>
+                  Here you can use rows and columns to organize your footer content.
+                </p>
+              </div>
+              <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+                <h5 class="text-uppercase">Links</h5>
+                <ul class="list-unstyled mb-0">
+                  <li>
+                    <a href="#!" class="text-dark">Link 1</a>
+                  </li>
+                  <li>
+                    <a href="#!" class="text-dark">Link 2</a>
+                  </li>
+                  <li>
+                    <a href="#!" class="text-dark">Link 3</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="text-center p-3 bg-primary text-white">
+            © 2023 Copyright:
+            <a class="text-white" href="#">Example.com</a>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

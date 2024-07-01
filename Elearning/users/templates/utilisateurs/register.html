@@ -1,0 +1,98 @@
+
+ 
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>
+        #cont1{
+            background: rgba(255, 255, 255, .3);
+            border-left: 1px solid rgba(255, 255, 255, .3);
+            border-top: 1px solid rgba(255, 255, 255, .3);
+            
+            -webkit-backdrop-filter: blur(10px);
+            -moz-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            box-shadow: 20px 20px 40px -6px rgba(0, 0, 0, .2);
+        }
+        #cont2{
+            background-color: #ECF8F6;
+        }
+        #body{
+            background-color:#18534F ;
+        }
+        #lien{
+            color:#D6955B;
+        }
+    </style> 
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    {% load static %}  
+</head>
+
+<body id="body" class="align-content-center">
+    
+    <div class="container d-flex">
+        <div class="container align-content-center  justify-content-end py-3 px-3 my-3 " id="cont1" >
+            <h2 class="text-align-justify text-justify-center">Inscription</h2>
+            <form action="" method="POST" class="rows">
+                {% csrf_token %}
+                <label for="username"  class="form-label">Nom d'utilisateur</label>
+                <input type="text" class="form-control py-2 my-2" name="username" id="username" required>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="first_name" class="form-label">Noms</label>
+                        <input type="text" class="form-control py-2 my-2" name="first_name" id="first_name" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="last_name" class="form-label">Prenoms</label>
+                        <input type="text" class="form-control py-2 my-2" name="last_name" id="last_name" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="password1" class="form-label">Mot de passe</label>
+                        <input type="password" class="form-control py-2 my-2" id="password1" name="password1" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="password2" class="form-label">Confirmer votre mot de passe</label>
+                        <input type="password" class="form-control py-2 my-2" id="password2" name="password2" required>
+                    </div>
+                    
+                </div>
+                
+                <label for="bio" class="form-label">Bio</label>
+                <textarea rows="" class="form-control py-2 my-2" name="bio" id="bio" cols=""></textarea>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="photo_p" class="form-label">Photo de Profil</label>
+                        <input type="file" class="form-control py-2 my-2" id="photo_p" name="photo_p">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="type_p" class="form-label">Type de Profil</label>
+                        <select class="form-control py-2 my-2" id="type_p" name="type_p">
+                           
+                            {% for value, label in type_user %}
+                            <option value="{{ value }}" {% if value == Profile.type_p %}selected{% endif %}>{{ label }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                        
+                </div>
+                
+
+                <input type="submit"  class="btn btn-success w-50  my-3" value="S'enregistrer" >    
+            </form>
+        </div>
+       
+        <div class="  my-3 py-3 w-50" id="cont2">
+            <h1 class="control">Banque des Etats de l'Afrique Centrale</h1>
+            <img src="{% static "beaclogo.png" %}" alt="BEAC logo">
+        </div>   
+    </div>
+</body>
+</html>

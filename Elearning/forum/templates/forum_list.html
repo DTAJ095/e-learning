@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container my-5">
+    <h1 class="mb-4">Forums</h1>
+    <div class="list-group">
+      {% for forum in forums %}
+        <a href="{% url 'thread_list' forum.id %}" class="list-group-item list-group-item-action">
+          <h5 class="mb-1">{{ forum.title }}</h5>
+          <p class="mb-1">{{ forum.description }}</p>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% load static %}
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1 class="my-4">Liste des niveaux</h1>
+    <a href="{% url 'myapp:niveau_create' %}" class="btn btn-primary mb-4">Créer un nouveau niveau</a>
+    <div class="row">
+        {% for niveau in niveaux %}
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ niveau.nom }}</h5>
+                    <p class="card-text">{{ niveau.description }}</p>
+                    <a href="{% url 'myapp:niveau_update' niveau.id %}" class="btn btn-primary">Modifier</a>
+                    <a href="{% url 'myapp:niveau_delete' niveau.id %}" class="btn btn-danger">Supprimer</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

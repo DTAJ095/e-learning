@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container my-5">
+    <h1 class="mb-4">{{ forum.title }}</h1>
+    <p>{{ forum.description }}</p>
+    <a href="{% url 'create_thread' forum.id %}" class="btn btn-primary mb-3">Créer un nouveau sujet</a>
+    <div class="list-group">
+      {% for thread in threads %}
+        <a href="{% url 'thread_detail' forum.id thread.id %}" class="list-group-item list-group-item-action">
+          <h5 class="mb-1">{{ thread.title }}</h5>
+          <p class="mb-1">Créé par {{ thread.author.username }}</p>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}

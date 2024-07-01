@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container my-5">
+    <h1 class="mb-4">Répondre au sujet "{{ thread.title }}"</h1>
+    <form method="post">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="content">Contenu :</label>
+        <textarea class="form-control" id="content" name="content" rows="5" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Poster la réponse</button>
+    </form>
+  </div>
+{% endblock %}

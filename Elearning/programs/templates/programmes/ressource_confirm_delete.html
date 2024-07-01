@@ -1,0 +1,14 @@
+{% load static %}
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1 class="my-4">Supprimer la ressource</h1>
+    <p>Êtes-vous sûr de vouloir supprimer la ressource "{{ object.titre }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Oui, supprimer</button>
+        <a href="{% url 'myapp:ressource_list' %}" class="btn btn-secondary">Annuler</a>
+    </form>
+</div>
+{% endblock %}
