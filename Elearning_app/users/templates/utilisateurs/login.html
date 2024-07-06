@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        #cont1{
+            background: rgba(255, 255, 255, .3);
+            border-left: 1px solid rgba(255, 255, 255, .3);
+            border-top: 1px solid rgba(255, 255, 255, .3);
+            
+            -webkit-backdrop-filter: blur(10px);
+            -moz-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            box-shadow: 20px 20px 40px -6px rgba(0, 0, 0, .2);
+        }
+        #cont2{
+            background-color: #ECF8F6;
+        }
+        #body{
+            background-color:#18534F ;
+        }
+        #lien{
+            color:#D6955B;
+        }
+    </style>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+</head>
+
+<body id="body" class="align-content-center">
+    
+    <div class="container d-flex pt-5 my-5 ">
+        <div class="container align-content-center justify-content-end py-5" id="cont2">
+            <h1>Banque des Etats de l'Afrique Centrale</h1>
+            <img src="{% static "beaclogo.png" %}" alt="BEAC logo">
+        </div>
+        <div class="container align-content-center  justify-content-end py-5" id="cont1">
+            <h2 class="text-align-justify text-justify-center">Bienvenue dans votre plateforme E-learning</h2>
+            <form action="" method="POST">
+                {% csrf_token %}
+                <label for="username">Nom d'utilisateur</label>
+                <input type="text" class="form-control py-2 my-2" name="username" id="username">
+                <label for="password">Mot de passe</label>
+                <input type="password" class="form-control py-2 my-2" id="password" name="password">
+                <a id="lien" href="{% url 'register'%}">Vous n'avez pas de compte? Inscrivez-vous</a>
+                <input type="submit"  class="btn btn-success w-50  my-3" value="Se conecter">    
+            </form>
+        </div>
+        
+    </div>
+</body>
+</html>
